@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body_class %}vehicle-detection-page{% endblock %}
+
+{% block content %}
+<div class="detection-interface" style="max-width: 600px; margin: 0 auto;">
+    <h2>Vehicle Detection</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="car-upload-form">
+        <label class="car-file-upload-label">
+            Select Video File
+            <input type="file" name="video" accept=".mp4" required>
+        </label>
+
+        <button type="submit" class="car-process-btn">Process Video</button>
+    </form>
+
+    {% if processed_video_path %}
+    <div class="car-result-container">
+        <div class="download-options">
+            <a href="{{ url_for('download_video', filename=processed_video_path) }}" class="download-btn">Download Video</a>
+            <a href="{{ url_for('download_excel', filename=excel_file_path) }}" class="download-btn">Download Data</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

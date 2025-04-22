@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body class="homepage">
+
+    <h1 class="app-title">Detection App</h1>
+
+    <div class="container">
+        <div class="option-card" id="vehicle-detection">
+            <a href="{{ url_for('car_detection') }}">Vehicle Detection</a>
+        </div>
+        <div class="option-card" id="image-change">
+            <a href="{{ url_for('image_change') }}">Image Change Detection</a>
+        </div>
+        <div class="option-card" id="night-vision">
+            <a href="{{ url_for('night_detection') }}">Night Vision Detection</a>
+        </div>
+        <div class="option-card" id="weapon-detection">
+            <a href="{{ url_for('weapon_detection') }}">Weapon Detection</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar-menu").classList.toggle("open");
+        }
+    </script>
+</body>
+</html>

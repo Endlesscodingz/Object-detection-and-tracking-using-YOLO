@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body_class %}night-vision-page{% endblock %}
+
+{% block content %}
+<div class="night-detection-interface">
+    <h2>Night Vision Detection</h2>
+    <form method="POST" enctype="multipart/form-data" class="night-detection-form">
+        <div class="file-upload">
+            <label class="custom-file-upload">
+                Choose File
+                <input type="file" name="file" accept=".mp4, .avi, .mov, .jpg, .jpeg, .png" required class="upload-input">
+            </label>
+
+        </div>
+        <button type="submit" class="night-detection-button">Process</button>
+    </form>
+
+    {% if processed_image or processed_video %}
+    <div class="night-result-container">
+        <h3>Results</h3>
+        {% if processed_image %}
+        <img src="{{ url_for('static', filename='results/' + processed_image) }}" class="result-image">
+        {% endif %}
+
+
+        <div class="download-links">
+            {% if processed_video %}
+            <a href="{{ url_for('download_video', filename=processed_video) }}" class="download-button video-download">Download Video</a>
+            {% endif %}
+            <a href="{{ url_for('download_excel', filename=excel_file) }}" class="download-button data-download">Download Data</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}

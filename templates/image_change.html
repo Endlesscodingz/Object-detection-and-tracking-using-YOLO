@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block body_class %}image-change-page{% endblock %}
+
+{% block content %}
+
+<div class="change-interface">
+    <h2>Image Change Detection</h2>
+    <form method="POST" enctype="multipart/form-data" class="image-upload-form">
+        <div class="image-input">
+            <div>
+                <label for="before-upload" class="custom-upload-btn">Select Before Image</label>
+                <input type="file" id="before-upload" name="before_image" accept="image/*" required>
+            </div>
+
+            <div>
+                <label for="after-upload" class="custom-upload-btn">Select After Image</label>
+                <input type="file" id="after-upload" name="after_image" accept="image/*" required>
+            </div>
+        </div>
+
+        <button type="submit" class="detect-btn">Detect Changes</button>
+    </form>
+
+    {% if before_image and after_image and diff_image %}
+    <div class="image-result-container">
+        <h3>Comparison Results</h3>
+        <div class="image-comparison">
+            <div class="image-container">
+                <h4>Before</h4>
+                <img src="{{ url_for('static', filename=before_image) }}" alt="Before Image">
+            </div>
+            <div class="image-container">
+                <h4>After</h4>
+                <img src="{{ url_for('static', filename=after_image) }}" alt="After Image">
+            </div>
+            <div class="image-container">
+                <h4>Differences</h4>
+                <img src="{{ url_for('static', filename=diff_image) }}" alt="Difference Image">
+            </div>
+        </div>
+
+        {% if excel_file_path %}
+        <div class="download-section">
+            <a href="{{ url_for('download_excel', filename=excel_file_path) }}" class="download-btn">Download Change Data</a>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

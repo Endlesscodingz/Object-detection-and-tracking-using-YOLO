@@ -1,0 +1,165 @@
+/* Dark Theme Styles */
+.night-vision-page {
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Main Container */
+.night-detection-interface {
+    max-width: 700px; /* Made it wider */
+    margin: 0 auto;
+    padding: 25px;
+    background: rgba(40, 42, 54, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+/* Form Styling */
+.night-detection-form {
+    background:#2C3E4C;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Custom File Upload Button */
+.file-upload {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-file-upload {
+    width: 93%;
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.custom-file-upload:hover {
+    background: #2980b9;
+}
+
+/* Hide Default File Input */
+.upload-input {
+    display: none;
+}
+
+/* Display Selected File Name */
+.file-name {
+    margin-top: 8px;
+    font-size: 14px;
+    color: black;
+}
+
+/* Process Button */
+.night-detection-button {
+    background: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.night-detection-button:hover {
+    background: #27ae60;
+}
+
+/* Result Section */
+.night-result-container {
+    margin-top: 30px;
+    background: #2C3E4C; /* Dark bluish-gray */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+    max-width: 95%; /* Slightly wider */
+    max-height: 500px; /* Prevents excessive height */
+    overflow-y: auto; /* Scroll if needed */
+}
+.night-result-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.night-result-container::-webkit-scrollbar-track {
+    background: #1e1e2f; /* Dark track to blend with background */
+    border-radius: 5px;
+}
+
+.night-result-container::-webkit-scrollbar-thumb {
+    background: #00adb5; /* Vibrant cyan */
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.night-result-container::-webkit-scrollbar-thumb:hover {
+    background: #00d9ff; /* Brighter cyan on hover */
+}
+
+/* Images and Videos */
+.result-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    max-height: 400px; /* Prevents oversized display */
+}
+
+
+
+/* Download Links */
+.download-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.download-button {
+    width:70%;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.video-download {
+    background: #3498db;
+}
+
+.video-download:hover {
+    background: #2980b9;
+}
+
+.data-download {
+    background: #9b59b6;
+}
+
+.data-download:hover {
+    background: #8e44ad;
+}

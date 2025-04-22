@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body_class %}weapon-detection-page{% endblock %}
+
+{% block content %}
+<div class="weapon-detection-interface">
+    <h2>Weapon Detection</h2>
+    <form method="POST" enctype="multipart/form-data" class="night-detection-form">
+        <div class="file-upload">
+            <label class="custom-file-upload">
+                Choose File
+                <input type="file" name="file" accept=".mp4, .avi, .mov, .jpg, .jpeg, .png" required class="upload-input">
+            </label>
+        </div>
+        <button type="submit" class="weapon-detection-button">Process</button>
+    </form>
+
+    {% if processed_image or processed_video %}
+    <div class="weapon-result-container">
+        <h3>Results</h3>
+
+        {% if processed_image %}
+        <img src="{{ url_for('static', filename='results/' + processed_image) }}" class="result-image">
+        {% endif %}
+
+        {% if processed_video %}
+        <video controls class="result-video" width="640">
+            <source src="{{ url_for('static', filename='results/' + processed_video) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {% endif %}
+
+        <div class="download-links">
+            {% if processed_video %}
+            <a href="{{ url_for('download_video', filename=processed_video) }}" class="download-button video-download">Download Video</a>
+            {% endif %}
+
+            {% if excel_file %}
+            <a href="{{ url_for('download_excel', filename=excel_file) }}" class="download-button data-download">Download Data</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

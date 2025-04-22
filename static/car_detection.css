@@ -1,0 +1,150 @@
+/* Full-Screen Background Image */
+.vehicle-detection-page {
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;  /* Ensures it stays fixed while scrolling */
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Prevents unwanted scrolling */
+    position: relative;
+}
+
+
+
+/* Centered Detection Interface */
+.detection-interface {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(40, 42, 54, 0.9); /* Semi-transparent dark box */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Ensures it is above the background */
+}
+
+/* Page Title */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #00cec9;
+}
+
+/* File Upload */
+.car-upload-form {
+    margin-top: 20px;
+}
+
+.car-file-upload-label {
+    display: block;
+    width: 95%;
+    padding: 15px;
+    background: #ff7675;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.car-file-upload-label:hover {
+    background: #d63031;
+    transform: scale(1.05);
+}
+
+.car-file-upload-label input {
+    display: none;
+}
+
+/* Process Button */
+.car-process-btn {
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #0984e3, #6c5ce7);
+    color: white;
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.car-process-btn:hover {
+    background: linear-gradient(135deg, #6c5ce7, #0984e3);
+    transform: scale(1.05);
+}
+
+/* Video Results */
+.car-result-container {
+    margin-top: 30px;
+    background: rgba(53, 59, 72, 0.9); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2; /* Ensures it is above the background */
+}
+
+.car-result-container h3 {
+    font-size: 22px;
+    color: #ff9f43;
+}
+
+/* Video Player */
+video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Download Buttons */
+.download-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.download-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #00b894, #00cec9);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    margin: 5px;
+}
+
+.download-btn:hover {
+    background: linear-gradient(135deg, #00cec9, #00b894);
+    transform: scale(1.05);
+}
+
+/* Ensure the background scales properly */
+@media (max-width: 768px) {
+    body {
+        background-size: contain;  /* Adjusts for smaller screens */
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .detection-interface {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}

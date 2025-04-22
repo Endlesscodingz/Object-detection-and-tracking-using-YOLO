@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='car_detection.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='night_detection.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='image_change.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='weapons.css') }}">
+
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+    <!-- Wrapper to ensure full background coverage -->
+    <div class="app-wrapper">
+        <div class="sidebar">
+            <nav id="sidebar-menu">
+                <a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+                <a href="{{ url_for('car_detection') }}"><i class="fas fa-car"></i> Vehicle Detection</a>
+                <a href="{{ url_for('image_change') }}"><i class="fas fa-images"></i> Image Change Detection</a>
+                <a href="{{ url_for('night_detection') }}"><i class="fas fa-moon"></i> Night Vision Detection</a>
+                <a href="{{ url_for('weapon_detection') }}"><i class="fas fa-weapon"></i> Weapon Detection</a>
+            </nav>
+        </div>
+
+        <div class="main-content">
+
+            <!-- Loader (Hidden by Default) -->
+            <div id="loading-spinner" class="spinner" style="display: none;"></div>
+
+            <!-- Processing Complete Message (Hidden by Default) -->
+            <div id="processing-message" class="processing-message" style="display: none;">
+                {% if processing_message %} {{ processing_message }} {% endif %}
+            </div>
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script>
+        // Sidebar Toggle Functionality
+        function toggleSidebar() {
+            document.getElementById("sidebar-menu").classList.toggle("open");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const loader = document.getElementById("loading-spinner");
+            const message = document.getElementById("processing-message");
+
+            if (form) {
+                form.addEventListener("submit", function () {
+                    loader.style.display = "block";  // Show loader when form submits
+                    message.style.display = "none";  // Hide message initially
+                });
+            }
+
+            // Show message only if it's not empty
+            if (message.innerText.trim() !== "") {
+                message.style.display = "block";
+                loader.style.display = "none";  // Hide loader once processing is complete
+            }
+        });
+    </script>
+
+</body>
+</html>
