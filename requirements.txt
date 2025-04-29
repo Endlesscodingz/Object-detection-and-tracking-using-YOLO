@@ -1,5 +1,11 @@
-ultralytics>=8.0.26
+# Place headless version before anything else
 opencv-python-headless>=4.6.0
+
+# Make sure these are NOT in your requirements.txt:
+# opencv-python
+# opencv-contrib-python
+
+ultralytics>=8.0.26
 numpy>=1.18.5
 pandas
 mysql-connector-python
